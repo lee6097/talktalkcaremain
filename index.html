@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>톡톡케어 - 똑똑한 AI 건강 상담사</title>
   <style>
     body {
@@ -11,26 +11,32 @@
       background-color: #f4f8fc;
       color: #333;
     }
+
     header {
       background-color: #6fb8f4;
       color: white;
       padding: 40px 20px;
       text-align: center;
     }
+
     header h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 3em;
+      font-weight: bold;
     }
+
     header h2 {
       margin-top: 10px;
       font-weight: normal;
-      font-size: 1.4em;
+      font-size: 1.2em;
     }
+
     .container {
       max-width: 800px;
       margin: 30px auto;
       padding: 0 20px;
     }
+
     .button {
       display: block;
       width: 100%;
@@ -45,25 +51,32 @@
       cursor: pointer;
       text-decoration: none;
       transition: background-color 0.3s;
+      font-weight: bold;
     }
+
     .button:hover {
       background-color: #56a3e0;
     }
+
     .section {
       margin: 30px 0;
     }
+
     .toggle-title {
       font-weight: bold;
       cursor: pointer;
-      background-color: #e4f1fc;
+      background-color: #6fb8f4;
+      color: white;
       padding: 15px;
       border-radius: 8px;
       margin-bottom: 5px;
       transition: background 0.2s;
     }
+
     .toggle-title:hover {
-      background-color: #d3e9fc;
+      background-color: #56a3e0;
     }
+
     .toggle-content {
       display: none;
       padding: 15px;
@@ -72,6 +85,23 @@
       border-radius: 8px;
       line-height: 1.6;
     }
+
+    .submenu {
+      margin-top: 10px;
+    }
+
+    .submenu-title {
+      font-weight: bold;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .submenu-content {
+      display: none;
+      padding-left: 15px;
+      margin-top: 5px;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -81,10 +111,9 @@
   </style>
 </head>
 <body>
-
   <header>
-    <h1>똑똑한 AI 건강 상담사</h1>
-    <h2>톡톡케어</h2>
+    <h1>톡톡케어</h1>
+    <h2>똑똑한 AI 건강 상담사</h2>
   </header>
 
   <div class="container">
@@ -105,25 +134,41 @@
     <div class="section">
       <div class="toggle-title" onclick="toggleSection('howto')">이용방법</div>
       <div class="toggle-content" id="howto">
-        <strong>(1) 모드 선택</strong><br>
-        초보자용 '톡톡케어'와 숙련자용 '톡톡케어+'의 2가지 모드로 나뉘어 있습니다.<br>
-        '톡톡케어'는 답변이 빠르고, 간단명료하다는 장점이 있습니다.<br>
-        '톡톡케어+'는 답변이 조금 느리지만, 더 자세하고 정확하게 설명해줍니다.<br><br>
-
-        <strong>(2) 상담하기</strong><br>
-        채팅창에서 상담사와 편안하게 대화하시면 됩니다. '건강상담'과 '의학지식상담'이 가능합니다.<br>
-        증상 관련 질문이 있을 경우 가장 불편한 증상부터 입력해보세요.<br><br>
-
-        <strong>(3) 음성 기능</strong><br>
-        스피커 버튼으로 음성 듣기, 마이크 버튼으로 음성 입력이 가능합니다.<br>
-        음성 입력은 멈추면 2~3초 후 자동 종료됩니다.<br><br>
-
-        <strong>(4) 복사 기능</strong><br>
-        말풍선 옆 또는 채팅창 하단의 복사 버튼으로 내용을 복사할 수 있습니다.<br><br>
-
-        <strong>(5) 대화 초기화</strong><br>
-        대화 초기화 버튼 또는 새로고침 시 대화 내용이 삭제됩니다.<br>
-        저장을 원하시면 복사 기능을 먼저 이용하세요.
+        <div class="submenu">
+          <div class="submenu-title" onclick="toggleSubmenu('mode')">(1) 모드 선택</div>
+          <div class="submenu-content" id="mode">
+            초보자용 '톡톡케어'와 숙련자용 '톡톡케어+'의 2가지 모드로 나뉘어 있습니다.<br>
+            '톡톡케어'는 답변이 빠르고, 간단명료하다는 장점이 있습니다.<br>
+            '톡톡케어+'는 답변이 조금 느리지만, 더 자세하고 정확하게 설명해줍니다.
+          </div>
+        </div>
+        <div class="submenu">
+          <div class="submenu-title" onclick="toggleSubmenu('chat')">(2) 상담하기</div>
+          <div class="submenu-content" id="chat">
+            채팅창에서 상담사와 편안하게 대화하시면 됩니다. '건강상담'과 '의학지식상담'이 가능합니다.<br>
+            증상 관련 질문이 있을 경우 가장 불편한 증상부터 입력해보세요.
+          </div>
+        </div>
+        <div class="submenu">
+          <div class="submenu-title" onclick="toggleSubmenu('voice')">(3) 음성 기능</div>
+          <div class="submenu-content" id="voice">
+            스피커 버튼으로 음성 듣기, 마이크 버튼으로 음성 입력이 가능합니다.<br>
+            음성 입력은 멈추면 2~3초 후 자동 종료됩니다.
+          </div>
+        </div>
+        <div class="submenu">
+          <div class="submenu-title" onclick="toggleSubmenu('copy')">(4) 복사 기능</div>
+          <div class="submenu-content" id="copy">
+            말풍선 옆 또는 채팅창 하단의 복사 버튼으로 내용을 복사할 수 있습니다.
+          </div>
+        </div>
+        <div class="submenu">
+          <div class="submenu-title" onclick="toggleSubmenu('reset')">(5) 대화 초기화</div>
+          <div class="submenu-content" id="reset">
+            대화 초기화 버튼 또는 새로고침 시 대화 내용이 삭제됩니다.<br>
+            저장을 원하시면 복사 기능을 먼저 이용하세요.
+          </div>
+        </div>
       </div>
     </div>
 
@@ -140,11 +185,12 @@
   <script>
     function toggleSection(id) {
       const content = document.getElementById(id);
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    }
+
+    function toggleSubmenu(id) {
+      const submenu = document.getElementById(id);
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
     }
   </script>
 </body>
