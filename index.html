@@ -2,196 +2,233 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>톡톡케어 - 똑똑한 AI 건강 상담사</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>톡톡케어 메인</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: sans-serif;
       margin: 0;
-      background-color: #f4f8fc;
+      padding: 0;
+      background-color: #f5faff;
       color: #333;
     }
-
     header {
       background-color: #6fb8f4;
       color: white;
-      padding: 40px 20px;
+      padding: 40px 20px 30px;
       text-align: center;
     }
-
     header h1 {
-      margin: 0;
-      font-size: 3em;
+      font-size: 2.5rem;
       font-weight: bold;
+      margin: 0;
     }
-
-    header h2 {
+    header p {
+      font-size: 1.1rem;
       margin-top: 10px;
-      font-weight: normal;
-      font-size: 1.2em;
     }
-
-    .container {
-      max-width: 800px;
-      margin: 30px auto;
-      padding: 0 20px;
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
     }
-
-    .button {
-      display: block;
-      width: 100%;
+    .start-button {
       background-color: #6fb8f4;
       color: white;
       border: none;
+      padding: 20px;
       border-radius: 10px;
-      padding: 15px;
-      font-size: 1.1em;
-      margin: 10px 0;
+      width: 180px;
       text-align: center;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s;
-      font-weight: bold;
-    }
-
-    .button:hover {
-      background-color: #56a3e0;
-    }
-
-    .section {
-      margin: 30px 0;
-    }
-
-    .toggle-title {
       font-weight: bold;
       cursor: pointer;
+      white-space: pre-line;
+      font-size: 1rem;
+    }
+    .collapsible {
       background-color: #6fb8f4;
       color: white;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 5px;
-      transition: background 0.2s;
-    }
-
-    .toggle-title:hover {
-      background-color: #56a3e0;
-    }
-
-    .toggle-content {
-      display: none;
-      padding: 15px;
-      border: 1px solid #ddd;
-      background: #fff;
-      border-radius: 8px;
-      line-height: 1.6;
-    }
-
-    .submenu {
-      margin-top: 10px;
-    }
-
-    .submenu-title {
-      font-weight: bold;
-      margin-top: 10px;
       cursor: pointer;
+      padding: 15px;
+      width: 90%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin: 10px auto;
+      border-radius: 8px;
     }
-
-    .submenu-content {
-      display: none;
-      padding-left: 15px;
-      margin-top: 5px;
+    .collapsible::after {
+      content: ' ▼';
+      float: right;
+      font-size: 0.9rem;
     }
-
+    .active::after {
+      content: ' ▲';
+    }
+    .content {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background-color: #f0f8ff;
+      border-radius: 0 0 8px 8px;
+      width: 90%;
+      margin: auto;
+      margin-bottom: 20px;
+    }
+    .content p {
+      padding: 15px;
+      margin: 0;
+    }
+    .sub-collapsible {
+      background-color: #d4ebfc;
+      color: #333;
+      cursor: pointer;
+      padding: 12px 15px;
+      width: 95%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1rem;
+      margin: 8px auto;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    .sub-content {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      background-color: #f5faff;
+      width: 95%;
+      margin: auto;
+      border-radius: 0 0 6px 6px;
+    }
+    .sub-content p {
+      padding: 12px;
+      margin: 0;
+    }
     footer {
       text-align: center;
       padding: 20px;
-      font-size: 0.9em;
-      color: #777;
+      font-size: 0.9rem;
+      background-color: #f0f0f0;
+      margin-top: 40px;
+    }
+    .footer-links a {
+      margin: 0 10px;
+      color: #6fb8f4;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>톡톡케어</h1>
-    <h2>똑똑한 AI 건강 상담사</h2>
+    <p>똑똑한 AI 건강 상담사</p>
   </header>
 
-  <div class="container">
-    <a class="button" href="https://lee6097.github.io/talktalkcare" target="_blank">톡톡케어 시작하기 (초보자용)</a>
-    <a class="button" href="https://lee6097.github.io/talktalkcareplus" target="_blank">톡톡케어+ 시작하기 (숙련자용)</a>
+  <div class="button-container">
+    <a class="start-button" href="https://lee6097.github.io/talktalkcare">
+      톡톡케어
+      시작하기
+      (초보자용)
+    </a>
+    <a class="start-button" href="https://lee6097.github.io/talktalkcareplus">
+      톡톡케어+
+      시작하기
+      (숙련자용)
+    </a>
+  </div>
 
-    <div class="section">
-      <div class="toggle-title" onclick="toggleSection('intro')">톡톡케어 소개</div>
-      <div class="toggle-content" id="intro">
-        톡톡케어(TalkTalkCare)는 OpenAI 기반의 의학 상담 및 진료과 추천 프로그램입니다. <br><br>
-        채팅창에 현재 가장 불편한 증상을 입력하거나 궁금한 의학지식에 대해 물어보시면 AI 상담가가 신뢰도 높은 문헌들을 검색한 후 답변해드립니다.<br><br>
-        톡톡케어는 일반적으로 잘 알려진 의학지식을 바탕으로 답변할 뿐, 진료를 제공하는 서비스가 아닙니다. 의료인의 답변이 아니며, 잘못된 답변에 대해 책임질 수 없습니다.<br><br>
-        사용자에게 자세히 질문하는 목적은 진단을 하기 위함이 아니고, 문헌 검색을 더욱 정교하게 하기 위함입니다. 톡톡케어는 의학적 판단, 진찰, 진단, 처방, 전문적인 조언 등의 의료행위를 할 수 없으며, 정확한 진단과 치료를 위해서는 반드시 의료기관을 방문하여 의료 전문가의 진료를 받으시기 바랍니다.<br><br>
-        톡톡케어는 어떠한 정보도 저장 및 수집하지 않습니다. 다만, 입력되는 데이터가 OpenAI 개인정보 처리방침에 의해 수집될 수 있습니다. 따라서 민감한 건강정보는 개인정보 보호를 위해 입력을 삼가주시기 바랍니다.
-      </div>
+  <button class="collapsible">톡톡케어 소개</button>
+  <div class="content">
+    <p>
+      톡톡케어(TalkTalkCare)는 OpenAI 기반의 의학 상담 및 진료과 추천 프로그램입니다. <br><br>
+      채팅창에 현재 가장 불편한 증상을 입력하거나 궁금한 의학지식에 대해 물어보시면 AI 상담가가 신뢰도 높은 문헌들을 검색한 후 답변해드립니다.<br><br>
+      톡톡케어는 일반적으로 잘 알려진 의학지식을 바탕으로 답변할 뿐, 진료를 제공하는 서비스가 아닙니다. 의료인의 답변이 아니며, 잘못된 답변에 대해 책임질 수 없습니다.<br><br>
+      사용자에게 자세히 질문하는 목적은 진단을 하기 위함이 아니고, 문헌 검색을 더욱 정교하게 하기 위함입니다. 톡톡케어는 의학적 판단, 진찰, 진단, 처방, 전문적인 조언 등의 의료행위를 할 수 없으며, 정확한 진단과 치료를 위해서는 반드시 의료기관을 방문하여 의료 전문가의 진료를 받으시기 바랍니다.<br><br>
+      톡톡케어는 어떠한 정보도 저장 및 수집하지 않습니다. 다만, 입력되는 데이터가 OpenAI 개인정보 처리방침에 의해 수집될 수 있습니다. 따라서 민감한 건강정보는 개인정보 보호를 위해 입력을 삼가주시기 바랍니다.
+    </p>
+  </div>
+
+  <button class="collapsible">이용방법</button>
+  <div class="content">
+    <button class="sub-collapsible">(1) 모드 선택</button>
+    <div class="sub-content">
+      <p>
+        초보자용 '톡톡케어'와 숙련자용 '톡톡케어+'의 2가지 모드로 나뉘어 있습니다. <br>
+        '톡톡케어'는 답변이 빠르고, 간단명료하다는 장점이 있습니다.<br>
+        '톡톡케어+'는 답변이 조금 느리지만, 더 자세하고 정확하게 설명해줍니다.<br>
+        빠른 답변을 선호하시는 분들과 긴 글이 불편하신 분들은 '톡톡케어' 이용을 추천드리고,<br>
+        꼼꼼하고 신뢰도 있는 상담을 원하시는 분들은 '톡톡케어+' 이용을 추천드립니다.
+      </p>
     </div>
 
-    <div class="section">
-      <div class="toggle-title" onclick="toggleSection('howto')">이용방법</div>
-      <div class="toggle-content" id="howto">
-        <div class="submenu">
-          <div class="submenu-title" onclick="toggleSubmenu('mode')">(1) 모드 선택</div>
-          <div class="submenu-content" id="mode">
-            초보자용 '톡톡케어'와 숙련자용 '톡톡케어+'의 2가지 모드로 나뉘어 있습니다.<br>
-            '톡톡케어'는 답변이 빠르고, 간단명료하다는 장점이 있습니다.<br>
-            '톡톡케어+'는 답변이 조금 느리지만, 더 자세하고 정확하게 설명해줍니다.
-          </div>
-        </div>
-        <div class="submenu">
-          <div class="submenu-title" onclick="toggleSubmenu('chat')">(2) 상담하기</div>
-          <div class="submenu-content" id="chat">
-            채팅창에서 상담사와 편안하게 대화하시면 됩니다. '건강상담'과 '의학지식상담'이 가능합니다.<br>
-            증상 관련 질문이 있을 경우 가장 불편한 증상부터 입력해보세요.
-          </div>
-        </div>
-        <div class="submenu">
-          <div class="submenu-title" onclick="toggleSubmenu('voice')">(3) 음성 기능</div>
-          <div class="submenu-content" id="voice">
-            스피커 버튼으로 음성 듣기, 마이크 버튼으로 음성 입력이 가능합니다.<br>
-            음성 입력은 멈추면 2~3초 후 자동 종료됩니다.
-          </div>
-        </div>
-        <div class="submenu">
-          <div class="submenu-title" onclick="toggleSubmenu('copy')">(4) 복사 기능</div>
-          <div class="submenu-content" id="copy">
-            말풍선 옆 또는 채팅창 하단의 복사 버튼으로 내용을 복사할 수 있습니다.
-          </div>
-        </div>
-        <div class="submenu">
-          <div class="submenu-title" onclick="toggleSubmenu('reset')">(5) 대화 초기화</div>
-          <div class="submenu-content" id="reset">
-            대화 초기화 버튼 또는 새로고침 시 대화 내용이 삭제됩니다.<br>
-            저장을 원하시면 복사 기능을 먼저 이용하세요.
-          </div>
-        </div>
-      </div>
+    <button class="sub-collapsible">(2) 상담하기</button>
+    <div class="sub-content">
+      <p>
+        채팅창에서 상담사와 편안하게 대화하시면 됩니다. 현재 건강상태에 대해 상담을 받는 '건강상담'과 의학지식에 대해 답변을 듣는 '의학지식상담'을 할 수 있습니다.<br>
+        현재 건강상태와 관련하여 걱정되는 부분이 있다면 '가장 불편한 증상'부터 입력하시면 됩니다. 이후 상담사는 이와 관련하여 구체적인 의학 정보 검색을 위해 이용자의 여러 건강정보(증상 발생일, 증상 위치, 가족력, 기저질환 등)에 대해 물어볼 수 있습니다.<br>
+        상담사는 상황에 따라 평균적으로 5~10개 정도의 질문을 하게 되는데, 번거로우시더라도 자세하고 솔직하게 입력하실수록 정확한 답변을 얻을 수 있습니다.<br>
+        의학지식에 대해 궁금하시면 일반 chatGPT에게 질문하듯 편하게 질문하시면 됩니다. 신뢰도 있는 출처를 참고하여 정확하게 정리한 답변을 받으실 수 있습니다.
+      </p>
     </div>
 
-    <div class="section">
-      <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSd4zR9GG2Iwltru0dPET4n3Yi8uTFZxYxIqAIv7QHrWibg-zQ/viewform" target="_blank">피드백 보내기</a>
-      <a class="button" href="https://lee6097.github.io/talktalkcareprivacy/" target="_blank">개인정보처리방침</a>
+    <button class="sub-collapsible">(3) 음성(듣기, 말하기) 기능</button>
+    <div class="sub-content">
+      <p>
+        채팅창의 말풍선 옆에 있는 스피커 버튼을 클릭하시면, 음성 듣기 기능이 활성화됩니다.<br>
+        입력창 옆에 있는 마이크 버튼을 누르시면, 음성 말하기 기능이 활성화됩니다. 음성 말하기 기능 사용 시 더 이상 음성이 입력되지 않으면 약 2~3초 후에 자동 종료됩니다.
+      </p>
+    </div>
+
+    <button class="sub-collapsible">(4) 복사 기능</button>
+    <div class="sub-content">
+      <p>
+        채팅창의 말풍선 옆에 있는 복사 버튼을 클릭하시면, 클립보드에 자동으로 복사됩니다. 다른 곳에 붙여넣기할 수 있습니다.<br>
+        채팅창 하단 '전체 복사' 버튼을 클릭하시면, 클립보드에 채팅창 내 전체 대화 내용이 자동으로 복사됩니다. 다른 곳에 붙여넣기할 수 있습니다.
+      </p>
+    </div>
+
+    <button class="sub-collapsible">(5) 대화 초기화</button>
+    <div class="sub-content">
+      <p>
+        채팅창 하단 ‘대화 초기화’ 버튼을 누르거나 웹페이지 또는 앱을 새로고침하면 대화 내용이 초기화되고 새로운 상담사가 배정됩니다.<br>
+        기존 대화 내용은 기억되거나 저장되지 않으며, 초기화 이후 새롭게 배정된 상담사는 이전 내용에 대해 알 수 없습니다.<br>
+        대화 내용을 저장하고 싶으시면 초기화하기 전에 꼭 복사 기능을 활용하여 다른 곳에 붙여넣어주시기 바랍니다.
+      </p>
     </div>
   </div>
 
   <footer>
-    &copy; 2025 톡톡케어 | 공익 AI 건강상담 프로젝트
+    <div class="footer-links">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd4zR9GG2Iwltru0dPET4n3Yi8uTFZxYxIqAIv7QHrWibg-zQ/viewform" target="_blank">피드백 보내기</a>
+      |
+      <a href="https://lee6097.github.io/talktalkcareprivacy/" target="_blank">개인정보처리방침</a>
+    </div>
+    <p>&copy; 2025 톡톡케어 | 공익 AI 건강상담 프로젝트</p>
   </footer>
 
   <script>
-    function toggleSection(id) {
-      const content = document.getElementById(id);
-      content.style.display = content.style.display === "block" ? "none" : "block";
-    }
+    document.querySelectorAll('.collapsible').forEach(button => {
+      button.addEventListener('click', () => {
+        button.classList.toggle('active');
+        const content = button.nextElementSibling;
+        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + 'px';
+      });
+    });
 
-    function toggleSubmenu(id) {
-      const submenu = document.getElementById(id);
-      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-    }
+    document.querySelectorAll('.sub-collapsible').forEach(button => {
+      button.addEventListener('click', () => {
+        button.classList.toggle('active');
+        const content = button.nextElementSibling;
+        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + 'px';
+      });
+    });
   </script>
 </body>
 </html>
