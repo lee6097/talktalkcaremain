@@ -89,15 +89,18 @@
       border-radius: 8px;
       margin-bottom: 5px;
     }
-    .inner-menu details[open] summary::after,
-    .inner-menu summary::after {
+    /* 기본: ▶ 표시 */
+    .inner-menu details summary::after {
       content: '▶';
       float: right;
       transition: transform 0.3s;
     }
-    .inner-menu details[open] summary::after {
+
+    /* 열렸을 때: ▼로 회전 */
+    .inner-menu details[open] > summary::after {
       transform: rotate(90deg);
     }
+
     .footer {
       margin-top: 20px;
       padding: 20px;
