@@ -52,7 +52,20 @@
       max-width: 700px;
       text-align: left;
     }
-    .section summary {
+
+    /* 공통 summary 설정 */
+    details > summary {
+      list-style: none;
+    }
+    details > summary::-webkit-details-marker {
+      display: none;
+    }
+    details > summary::marker {
+      display: none;
+    }
+
+    /* 상위 summary: 이용 방법, 소개 등 */
+    .section > details > summary {
       background-color: #e0f0fc;
       padding: 15px 20px;
       cursor: pointer;
@@ -60,44 +73,42 @@
       font-weight: bold;
       border-radius: 10px;
       margin-bottom: 10px;
-      list-style: none;
+      position: relative;
     }
-    .section summary::marker {
-      display: none;
-    }
-    .section details[open] summary::after,
-    .section summary::after {
+    .section > details > summary::after {
       content: '▶';
       float: right;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease;
     }
-    .section details[open] summary::after {
+    .section > details[open] > summary::after {
       transform: rotate(90deg);
     }
+
     .section p {
       padding: 0 20px 10px;
       line-height: 1.9em;
     }
+
+    /* 내부 소메뉴 */
     .inner-menu {
       margin-left: 20px;
       margin-top: 10px;
     }
-    .inner-menu summary {
+    .inner-menu > details > summary {
       background-color: #f1faff;
       font-size: 1em;
       padding: 10px 15px;
       border-radius: 8px;
       margin-bottom: 5px;
+      cursor: pointer;
+      position: relative;
     }
-    /* 기본: ▶ 표시 */
-    .inner-menu details summary::after {
+    .inner-menu > details > summary::after {
       content: '▶';
       float: right;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease;
     }
-
-    /* 열렸을 때: ▼로 회전 */
-    .inner-menu details[open] > summary::after {
+    .inner-menu > details[open] > summary::after {
       transform: rotate(90deg);
     }
 
